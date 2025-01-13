@@ -1,0 +1,251 @@
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  transition: background-color 1s ease;
+}
+
+
+.rain {
+  background: #7ab8c2;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.snow {
+  background: #d1e7f3;
+  position: relative;
+  height: 100vh;
+  animation: snowfall 10s linear infinite;
+}
+
+.mist {
+  background: #6c6c6c;
+  position: relative;
+  height: 100vh;
+  animation: mist 4s linear infinite;
+}
+
+.sunny {
+  background: linear-gradient(to top, #f8e53b, #fb792f);
+}
+
+.cloudy {
+  background: linear-gradient(to top, #b0c4de, #3e7db6);
+}
+
+
+@keyframes rainFall {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+.rain::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(transparent, rgba(255, 255, 255, 0.4) 25%, transparent);
+  animation: rainFall 1s linear infinite;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+@keyframes snowfall {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+.snow::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/snow.png');
+  background-repeat: repeat;
+  animation: snowfall 10s linear infinite;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+@keyframes mist {
+  0% { opacity: 0.1; top: -20%; }
+  50% { opacity: 0.3; top: 5%; }
+  100% { opacity: 0.1; top: -20%; }
+}
+
+.mist::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  animation: mist 4s linear infinite;
+  pointer-events: none;
+}
+
+
+.weather-info {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.weather-info:hover {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+}
+
+
+.search-box {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#city {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 60%;
+}
+
+#search-btn, #theme-toggle {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #0753b8;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#search-btn:hover, #theme-toggle:hover {
+  background-color: #337ab7;
+}
+
+
+.weather-info {
+  margin-top: 20px;
+}
+
+.weather-info h1 {
+  font-size: 24px;
+  color: #333;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#weather-icon {
+  width: 80px;
+  height: 80px;
+  margin: 10px 0;
+  background-size: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+#weather-icon:hover {
+  transform: scale(1.1);
+}
+
+#temperature {
+  font-size: 50px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+#weather-description {
+  font-size: 18px;
+  color: #555;
+}
+
+.additional-info p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
+.additional-info span {
+  font-weight: bold;
+}
+
+
+.weather-info, .additional-info {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .weather-container {
+    width: 90%;
+  }
+
+  #city {
+    width: 70%;
+  }
+}
+ @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body  {
+  background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+background-size:cover;
+      -webkit-animation: slidein 100s;
+      animation: slidein 100s;
+
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+
+      -webkit-animation-direction: alternate;
+      animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
